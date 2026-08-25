@@ -10,6 +10,15 @@ days-until-stockout, reorder quantities) and the LLM only ever reasons over
 pre-computed summaries. See [The AI Recommendation Agent](#the-ai-recommendation-agent)
 below for why that split matters.
 
+## Live Demo
+
+- **App**: https://restaurant-management-system-kappa-five.vercel.app
+- **API docs**: https://restaurant-management-api-1iux.onrender.com/docs
+
+Both run on free tiers — the backend cold-starts (~30–50s) after periods of
+inactivity, so the first request after a while will feel slow. That's expected,
+not broken.
+
 ## Contents
 
 - [Architecture](#architecture)

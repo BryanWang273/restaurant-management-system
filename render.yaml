@@ -1,10 +1,3 @@
-databases:
-  - name: restaurant-management-db
-    databaseName: restaurant
-    user: restaurant
-    plan: free
-    postgresMajorVersion: "16"
-
 services:
   - type: web
     name: restaurant-management-api
@@ -14,10 +7,11 @@ services:
     dockerContext: .
     healthCheckPath: /health
     envVars:
+      # Postgres is hosted on Neon rather than Render: Render's free Postgres
+      # expires after 30 days. The connection string is a secret, so it is set
+      # manually in the Render dashboard instead of being committed here.
       - key: DATABASE_URL
-        fromDatabase:
-          name: restaurant-management-db
-          property: connectionString
+        sync: false
       # Groq's OpenAI-compatible endpoint (see README) — the key itself is
       # a secret and must be set manually in the Render dashboard, not
       # committed here.
